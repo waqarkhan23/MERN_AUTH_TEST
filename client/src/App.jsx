@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Auth/Login";
-import VehicleInformation from "./pages/vehicle/vehicleInformation";
+import VehicleInformation from "./pages/vehicle/VehicleInformation";
 
 function App() {
   return (
