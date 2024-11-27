@@ -8,7 +8,7 @@ const useLoginMutation = () => {
   const mutationFn = async (data) => {
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}/login`,
+        `${import.meta.env.VITE_BASE_URL}/api/v1/login`,
         data
       );
       localStorage.setItem("token", response.data.token);
