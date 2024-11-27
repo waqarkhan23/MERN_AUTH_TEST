@@ -7,10 +7,7 @@ export default defineConfig({
    server: {
     proxy: {
       '/api': {
-        target: 'https://mern-auth-api-mu.vercel.app/', // Your API server URL
-        changeOrigin: true, // Handles virtual hosting in case of subdomains
-        secure: false, // If the target is HTTPS and you have self-signed certificates
-        rewrite: (path) => path.replace(/^\/api/, ''), // Optional: Remove `/api` prefix
+        target: 'https://mern-auth-api-mu.vercel.app/',
       },
     },
   },
