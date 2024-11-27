@@ -16,7 +16,7 @@ app.get("/", (req,res)=>{
 })
 app.use(
   cors({
-    origin: "*",
+    origin: "https://mern-auth-frontend-sand.vercel.app/",
     credentials: true,
   })
 );
