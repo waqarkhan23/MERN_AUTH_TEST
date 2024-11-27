@@ -15,10 +15,7 @@ app.get("/", (req,res)=>{
   res.json({message:"running"})
 })
 app.use(
-  cors({
-    origin: "https://mern-auth-frontend-sand.vercel.app/",
-    credentials: true,
-  })
+  cors()
 );
 
 app.use(express.json());
