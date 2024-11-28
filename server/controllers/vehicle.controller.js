@@ -35,20 +35,11 @@ export const addVehicle = async (req, res) => {
       owner: userId,
     });
 
-    for (const file of imagesArray) {
-      await fs.unlink(file.path);
-    }
-
     res.status(201).json({
       message: "Vehicle added successfully",
       vehicle: newVehicle,
     });
   } catch (error) {
     res.status(400).json({ message: error.message });
-    for (const file of imagesArray) {
-      await fs.unlink(file.path).catch((err) => {
-        console.error(`Failed to delete file ${file.path}:`, err.message);
-      });
-    }
   }
 };
