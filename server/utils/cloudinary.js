@@ -1,10 +1,16 @@
 import { v2 as cloudinary } from "cloudinary";
 import dotenv from "dotenv";
 import { Readable } from "stream";
-// Load environment variables
+
 dotenv.config();
 
-// Configuration
+console.log("CLOUDINARY_CLOUD:", process.env.CLOUDINARY_CLOUD);
+console.log("CLOUDINARY_API_KEY:", process.env.CLOUDINARY_API_KEY);
+console.log(
+  "CLOUDINARY_API_SECRET:",
+  process.env.CLOUDINARY_API_SECRET ? "Set" : "Not set"
+);
+
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -19,8 +25,12 @@ export const uploadMediaToCloudinary = (file) => {
         resource_type: "auto",
       },
       (error, result) => {
-        if (error) reject(error);
-        else resolve(result);
+        if (error) {
+          console.error("Cloudinary upload error:", error);
+          reject(error);
+        } else {
+          resolve(result);
+        }
       }
     );
 
